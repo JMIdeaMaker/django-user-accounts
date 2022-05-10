@@ -243,7 +243,7 @@ class SignupCodeResult(models.Model):
 
 class EmailAddress(models.Model):
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_account_email_address')
     email = models.EmailField(max_length=254, unique=settings.ACCOUNT_EMAIL_UNIQUE)
     verified = models.BooleanField(_("verified"), default=False)
     primary = models.BooleanField(_("primary"), default=False)
